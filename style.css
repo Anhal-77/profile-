@@ -1,0 +1,295 @@
+:root {
+    --primary: #0A4D68;
+    --secondary: #088395;
+    --accent: #05BFDB;
+    --light: #00FFCA;
+    --bg-primary: #FAFAFA;
+    --bg-secondary: #FFFFFF;
+    --text-primary: #1A1A1A;
+    --text-secondary: #4A5568;
+    --shadow-sm: 0 2px 8px rgba(10, 77, 104, 0.08);
+    --shadow-md: 0 4px 16px rgba(10, 77, 104, 0.12);
+    --shadow-lg: 0 8px 32px rgba(10, 77, 104, 0.16);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Tajawal', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    color: var(--text-primary);
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    width: 100%;
+    background: var(--bg-secondary);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    animation: slideUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    padding: 60px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 30px 30px;
+    animation: float 20s linear infinite;
+}
+
+@keyframes float {
+    from {
+        transform: rotate(0deg) translateX(0);
+    }
+    to {
+        transform: rotate(360deg) translateX(50px);
+    }
+}
+
+.header-content {
+    position: relative;
+    z-index: 1;
+}
+
+h1 {
+    font-family: 'Cairo', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: white;
+    margin-bottom: 12px;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    animation: fadeIn 1s ease-out 0.2s both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.95);
+    font-weight: 400;
+    animation: fadeIn 1s ease-out 0.4s both;
+}
+
+.content {
+    padding: 50px 40px;
+}
+
+.section {
+    margin-bottom: 45px;
+    animation: fadeInUp 0.6s ease-out both;
+}
+
+.section:nth-child(1) { animation-delay: 0.1s; }
+.section:nth-child(2) { animation-delay: 0.2s; }
+.section:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section-title {
+    font-family: 'Cairo', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.section-title::before {
+    content: '';
+    width: 4px;
+    height: 28px;
+    background: linear-gradient(180deg, var(--accent) 0%, var(--light) 100%);
+    border-radius: 4px;
+}
+
+.projects {
+    display: grid;
+    gap: 24px;
+}
+
+.project-card {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 28px;
+    border-radius: 16px;
+    border-right: 4px solid var(--accent);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 0%, rgba(5, 191, 219, 0.05) 100%);
+    transition: width 0.4s ease;
+}
+
+.project-card:hover {
+    transform: translateX(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.project-card:hover::before {
+    width: 100%;
+}
+
+.project-name {
+    font-family: 'Cairo', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--secondary);
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.project-desc {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+
+.goal-text {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.9;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 25px;
+    border-radius: 16px;
+    border-right: 4px solid var(--primary);
+}
+
+.contact-section {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.contact-title {
+    font-family: 'Cairo', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 25px;
+}
+
+.whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #25D366;
+    color: white;
+    padding: 16px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+}
+
+.whatsapp-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
+    background: #20BA5A;
+}
+
+.whatsapp-icon {
+    width: 28px;
+    height: 28px;
+}
+
+.footer {
+    text-align: center;
+    padding: 30px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .header {
+        padding: 40px 25px;
+    }
+
+    .content {
+        padding: 35px 25px;
+    }
+
+    .section-title {
+        font-size: 1.3rem;
+    }
+
+    .contact-section {
+        padding: 30px 20px;
+    }
+
+    .whatsapp-btn {
+        padding: 14px 30px;
+        font-size: 1rem;
+    }
+}
